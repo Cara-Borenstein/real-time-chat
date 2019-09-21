@@ -25,7 +25,7 @@ SECRET_KEY = 'zr1!w9$q4^@gi_q2iasa)ho_oj(=&007uu8lt2=)(+k8$#5m@t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ASGI_APPLICATION = 'chat_project.routing.application'
 
@@ -70,11 +70,16 @@ TEMPLATES = [
     },
 ]
 
+
+REDIS_PROD_HOST = 'django-ws-redis.euu67g.ng.0001.usw1.cache.amazonaws.com'
+REDIS_LOCAL_HOST = '127.0.0.1'
+REDIS_HOST = REDIS_LOCAL_HOST if os.environ['ENVIRONMENT'] == 'local' else REDIS_PROD_HOST
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [(REDIS_HOST, 6379)],
         },
     },
 }

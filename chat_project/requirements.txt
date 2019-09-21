@@ -1,0 +1,6 @@
+channels==2.2.0     
+channels-redis==2.4.0     
+daphne==2.3.0     
+Django==2.2.5
+supervisor==4.0.2
+uWSGI==2.0.15
