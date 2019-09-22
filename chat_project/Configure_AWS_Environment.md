@@ -51,3 +51,15 @@ chmod +x start_app.sh
 
 # deploy
 eb deploy
+
+
+# Dockerrun.aws.json (if needed)
+{
+ "AWSEBDockerrunVersion": "1",
+ "Ports": [
+    {
+      "ContainerPort": 8080
+    }
+  ],
+ "Logging": "/var/eb_log"
+}
