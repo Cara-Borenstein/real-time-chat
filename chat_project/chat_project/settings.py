@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 
-REDIS_PROD_HOST = 'django-ws-redis.euu67g.ng.0001.usw1.cache.amazonaws.com'
+REDIS_PROD_HOST = '<your_redis_host>.usw1.cache.amazonaws.com'
 REDIS_LOCAL_HOST = '127.0.0.1'
 REDIS_HOST = REDIS_LOCAL_HOST if os.environ['ENVIRONMENT'] == 'local' else REDIS_PROD_HOST
 
