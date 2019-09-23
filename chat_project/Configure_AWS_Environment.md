@@ -35,16 +35,23 @@ When the environment boot up completes, you should see "Congratulations" when yo
 Note that this environment is NOT in the AWS Free tier because it is using an Application load balancer. This is required for a websocket application. We will shut down environment while not in use. 
 
 # Go to ElastiCache
-Configure Redis Nodes
+Services —> Elasticache
+Create new ElastiCache cluster
+* Redis
+* size t2.micro
+* name: django-ws
+* select two subnets
+* place URL in REDIS_HOST variable in settings.py
+
 # Configure EB CLI
 install eb-cli
 
 From chat_project directory
-eb init
+eb init --it
 us-west-1
 select application django-ws and environment Django-WS-env
 
-eb ssh —setup
+eb ssh --setup
 
 # change permission on start_app
 chmod +x start_app.sh
